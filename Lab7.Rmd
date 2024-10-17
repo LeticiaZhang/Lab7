@@ -90,6 +90,6 @@ plot_model(model_lab7,  type ="std",  show.values = TRUE, vline.color = "#1B1919
 ```
 
 # Q3: Interpret the R2. Which personality trait(s) can explain unique variance in satisfaction with life when controlling for each other, and which ones cannot? If someone asks you for advice on how to improve life satisfaction, based on your results, which personality trait would you recommend them to change and why?
-Extraversion, emotional stability and openness can explain unique variance in SWL when controlling for each other, and agreeableness and conscientiousness cannot. 
+R2 = .138 and adjusted R2 = .123. Approximately 13.8% of the variance in SWL can be explained by the Big 5 personality traits. After accounting for the number of predictors, the model still explains 12.3% of the variance in SWL. Extraversion, emotional stability and openness can explain unique variance in SWL when controlling for each other, and agreeableness and conscientiousness cannot. 
 Based on these results, focusing on improving extraversion and emotional stability would likely have the most positive impact on life satisfaction. Since they have strong positive associations with life satisfaction. On contrasts, Openness shows a negative relationship with life satisfaction in this model. This suggests that higher openness might be associated with lower SWL. Thus, improving emotional stability and extraversion rather than increasing openness might be more beneficial for improving life satisfaction.
 
