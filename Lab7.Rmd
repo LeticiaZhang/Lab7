@@ -1,6 +1,6 @@
 ---
 title: "Lab7"
-author: "Your Name"
+author: "Can Zhang"
 date: "2024-10-17"
 output: "github_document"
 ---
