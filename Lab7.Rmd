@@ -13,9 +13,9 @@ library(ggstatsplot)
 library(performance)
 library(sjPlot)
 
-ex <- read_sav("C:/Users/Colin/Documents/GitHub/Website/Lab7/ex.sav")
+ex <- read_sav("C:/Users/User/Documents/GitHub/Lab7/ex.sav")
 
-lab7<-read.csv("C:/Users/Colin/Documents/GitHub/Website/Lab7/lab7.csv")
+lab7<-read.csv("C:/Users/User/Documents/GitHub/Lab7/lab7.csv")
 
 
 
@@ -58,9 +58,8 @@ check_model(model)
 #step 3: summarize results; add ,std = TRUE if you want to get standardized coefficients
 model_summary(model)
 
-
 # or using the tab_model functionl; add  ,show.std = TRUE if you want to get standardized coefficients
-tab_model(model)
+tab_model(model, show.std = TRUE)
 
 #step 4: plot the results; change type ="est" to type = "std" if you want to plot the standardized coefficients
 plot_model(model,  type ="est",  show.values = TRUE, vline.color = "#1B191999", line.size = 1.5, dot.size = 2.5, colors = "blue") + theme_bruce()
@@ -71,14 +70,26 @@ plot_model(model,  type ="est",  show.values = TRUE, vline.color = "#1B191999", 
 
 # Q1: Use the Corr or the ggcorrmat function to plot the correlation between all variables. Which personality traits are correlated with satisfaction with life and which one is not? 
 ```{r}
-
+ggcorrmat(lab7)
 ```
+All of the Big 5 personality traits except openness are significantly correlated with SWL, as indicated by the plot.
 
 # Q2: Run a multiple regression using the Big 5 personality traits to predict satisfaction with life and plot the results
 ```{r}
-#for this lab assignment you would assume assumptions are met, but for your own analysis, you will need to examine assumptions carefully
 
+#for this lab assignment you would assume assumptions are met, but for your own analysis, you will need to examine assumptions carefully
+#step 1: build a model
+model_lab7<-lm(SWL ~ Extraversion + Agreeableness + Conscientiousness + EmotionalStability + Openness, data = lab7)
+
+# or using the tab_model functionl; add  ,show.std = TRUE if you want to get standardized coefficients
+tab_model(model_lab7, show.std = TRUE)
+
+#step 4: plot the results; change type ="est" to type = "std" if you want to plot the standardized coefficients
+plot_model(model_lab7,  type ="std",  show.values = TRUE, vline.color = "#1B191999", line.size = 1.5, dot.size = 2.5, colors = "purple") + theme_bruce()
 
 ```
 
-# Q3: Interpret the R2. Which personality trait(s) can explain unique variance in satisfaction with life when controlling for each other, and which ones cannot? If someone asks you for advice on how to improve life satisfaction, based on your results, which personality trait would you recommend them to change and why? 
+# Q3: Interpret the R2. Which personality trait(s) can explain unique variance in satisfaction with life when controlling for each other, and which ones cannot? If someone asks you for advice on how to improve life satisfaction, based on your results, which personality trait would you recommend them to change and why?
+Extraversion, emotional stability and openness can explain unique variance in SWL when controlling for each other, and agreeableness and conscientiousness cannot. 
+Based on these results, focusing on improving extraversion and emotional stability would likely have the most positive impact on life satisfaction. Since they have strong positive associations with life satisfaction. On contrasts, Openness shows a negative relationship with life satisfaction in this model. This suggests that higher openness might be associated with lower SWL. Thus, improving emotional stability and extraversion rather than increasing openness might be more beneficial for improving life satisfaction.
+
